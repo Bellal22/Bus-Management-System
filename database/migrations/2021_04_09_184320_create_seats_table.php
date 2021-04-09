@@ -15,6 +15,9 @@ class CreateSeatsTable extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('bus_id')->constrained();
+            $table->string('pnr');
+            $table->boolean('booked')->default(0);
             $table->timestamps();
         });
     }
