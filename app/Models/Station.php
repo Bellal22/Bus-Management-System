@@ -14,4 +14,8 @@ class Station extends Model
     {
         return $this->belongsToMany(Trip::class, 'trip_station');
     }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }

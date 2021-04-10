@@ -42,3 +42,4 @@ Route::middleware(['auth:api'])->group(function () {
 // user routes
 Route::post('/bookings',[BookingsController::class, 'store']);
 Route::get('/avilable_seat',[BusesController::class, 'list_seats']);
+Route::get('/available_trip',[TripsController::class, 'fetch_trips']);

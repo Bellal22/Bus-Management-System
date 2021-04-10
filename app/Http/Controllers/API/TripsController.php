@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Trip;
 use Illuminate\Http\Request;
 use App\Http\Requests\TripRequest;
-
+use Illuminate\Support\Facades\DB;
 class TripsController extends Controller
 {
     /**
@@ -16,6 +16,12 @@ class TripsController extends Controller
     public function index()
     {
         return Trip::all();
+    }
+    public function fetch_trips(Request $request){
+        // \dd('$trip');
+        $trip = DB::table('trip_station')->where('station_id', $request->origin)->orWhere('station_id', $request->dist)->join('cities', 'cities.id', '=', 'trip_station.station_id')->get();
+
+        return response()->json($trip,200);
     }
 
     /**
