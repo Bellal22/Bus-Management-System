@@ -14,6 +14,14 @@ class Trip extends Model
     {
         return $this->belongsToMany(Station::class, 'trip_station');
     }
+    public function booking()
+    {
+        return $this->hasMany(Booking::class);
+    }
+    public function bus()
+    {
+        return $this->hasOne(Bus::class);
+    }
 
 
 }

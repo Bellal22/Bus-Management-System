@@ -46,9 +46,12 @@ class BusesController extends Controller
      * @param  \App\Models\Bus  $bus
      * @return \Illuminate\Http\Response
      */
-    public function show(Bus $bus)
+    public function list_seats(Request $request)
     {
-        //
+        
+        $seats = $this->available_seats($request->trip_id,$request->origin,$request->dist);
+        
+        return response()->json(['seats' => $seats],200);
     }
 
     /**

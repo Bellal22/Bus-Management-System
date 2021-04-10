@@ -6,6 +6,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CitiesController;
 use App\Http\Controllers\API\BusesController;
 use App\Http\Controllers\API\TripsController;
+use App\Http\Controllers\API\BookingsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,11 +31,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
-// city routes
+// Adminstration routes
 
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('cities', CitiesController::class);
     Route::apiResource('buses', BusesController::class);
-    Route::apiResource('trips', TripsController::class);
-    
+    Route::apiResource('trips', TripsController::class);  
 });
+
+// user routes
+Route::post('/bookings',[BookingsController::class, 'store']);
+Route::get('/avilable_seat',[BusesController::class, 'list_seats']);

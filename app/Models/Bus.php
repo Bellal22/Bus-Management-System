@@ -15,16 +15,17 @@ class Bus extends Model
         return $this->hasMany(Seat::class);
     }
 
-    // public function trips()
-    // {
-    //     return $this->belongsToMany(Trip::class);
-    // }
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 
-    // public function trips()
-    // {
-    //     return $this->hasMany(Trip::class);
-    // }
+    public function trips()
+    {
+        return $this->belongsToMany(Trip::class);
+    }
 
+    
 
 
 }
