@@ -1,3 +1,8 @@
+# Enviroment
+* Laravel Framework 8.36.2 
+* api 
+* mysql 
+* Oauth
 # Run Application
 this app is an API based Laravel application 
 all you need is : 
