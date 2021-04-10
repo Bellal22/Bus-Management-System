@@ -1,4 +1,8 @@
-
+# Run Application
+this app is an API based Laravel application 
+all you need is : 
+* composer install 
+* php artisan serve 
 ## Adminstration Area
 We use OAuth for Authentication 
 log as admin with cridentals : email : "Bellal@gmail.com" password: "123456" 
