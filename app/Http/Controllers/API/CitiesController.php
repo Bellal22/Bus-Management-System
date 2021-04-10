@@ -7,10 +7,12 @@ use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\CityRequest;
+use App\Traits\CityTrait; 
 
 
 class CitiesController extends Controller
 {
+    use CityTrait; 
     /**
      * Display a listing of the resource.
      *
@@ -30,9 +32,10 @@ class CitiesController extends Controller
      */
     public function store(CityRequest $request)
     {
+        // \dd('ha');
         $city = City::create($request->validated());
-
-        return response()->json($city, 201);
+        
+        return $this->create_station($city) ?  response()->json($city, 201) : response()->json($city, 400);
     }
 
     /**

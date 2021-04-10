@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CitiesController;
 use App\Http\Controllers\API\BusesController;
+use App\Http\Controllers\API\TripsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,5 +35,6 @@ Route::post('login', [AuthController::class, 'login']);
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('cities', CitiesController::class);
     Route::apiResource('buses', BusesController::class);
+    Route::apiResource('trips', TripsController::class);
     
 });
